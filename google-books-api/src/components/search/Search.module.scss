@@ -1,0 +1,16 @@
+@use "../../partials/palette";
+
+.Search {
+    h1 {
+        font-family: Dosis-light;
+        letter-spacing: 3px;
+        font-size: 30px;
+        text-align: center;
+        text-decoration: none;
+        color: palette.$dark-grey;
+    }
+
+    input {
+        width: 400px;
+    }
+}

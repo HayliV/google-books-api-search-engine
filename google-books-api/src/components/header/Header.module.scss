@@ -1,0 +1,43 @@
+@use "../../partials/palette";
+
+.Header {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: palette.$light-grey;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    li a {
+        color: palette.$dark-grey;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: Dosis-light;
+        letter-spacing: 3px;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+        background-color: #364251;
+        color: palette.$light-grey;
+    }
+
+    img {
+        height: 100px;
+        width: 100px;
+    }
+
+    h1 {
+        font-family: Dosis-light;
+        letter-spacing: 3px;
+        font-size: 30px;
+        text-align: center;
+        text-decoration: none;
+        color: palette.$dark-grey;
+    }
+}
