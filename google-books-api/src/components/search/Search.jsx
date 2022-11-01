@@ -1,50 +1,27 @@
-import books from "./books.svg";
 import styles from "./Search.module.scss";
 import { useState } from "react";
 
-const Search = () => {
+const Search = ({ onSearch, onInputChange }) => {
     const [keyword, setKeyWord] = useState("");
-    const onInputChange = (event) => {
-        setKeyWord(event.target.value);
-    };
-
-    const getData = async () => {
-        const response = await fetch(
-            `https://www.googleapis.com/books/v1/volumes?q=${keyword}`
-        );
-        const json = await response.json();
-        console.log(json.items);
-        return json.items;
-    };
-
-    const onSearch = (event) => {
-        event.preventDefault();
-        getData();
-    };
-
-    // const keyword = "";
-
-    // const getData = async () => {
-    //     const response = await fetch(
-    //         `https://www.googleapis.com/books/v1/volumes?q=${keyword}`
-    //     );
-    //     const json = await response.json();
-    //     return json.items;
-    // };
 
     return (
         <div className={styles.Search}>
-            <h1>Search for a book, an author or genre</h1>
+            <h1 className={styles.Search__title}>
+                Search for a book, an author or genre
+            </h1>
+
             <div>
-                <form onSubmit={onSearch}>
+                <form className={styles.Search__form} onSubmit={onSearch}>
                     <input
+                        className={styles.Search__input}
                         type="search"
-                        placeholder="Jane Austen, Kafka on the Shore, mystery"
-                        value={keyword}
+                        placeholder="Jane Austen, Kafka on the Shore, mystery..."
+                        defaultValue={keyword}
                         onChange={onInputChange}></input>
-                    <button type="submit">Search</button>
+                    <button className={styles.Search__button} type="submit">
+                        Search
+                    </button>
                 </form>
-                {/* <img src={books}></img> */}
             </div>
         </div>
     );
